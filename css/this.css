@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'font_family';  /* project id 1651592 */
+  src: url('//at.alicdn.com/t/font_1651592_yi7c2gwb56.eot');
+  src: url('//at.alicdn.com/t/font_1651592_yi7c2gwb56.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1651592_yi7c2gwb56.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1651592_yi7c2gwb56.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1651592_yi7c2gwb56.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1651592_yi7c2gwb56.svg#font_family') format('svg');
+}
+
 body {
   font-family:'Metrolite Two Com','方正正黑简体';
 }
