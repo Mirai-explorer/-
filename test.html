@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta charset='UTF-8'>
+<script type="text/javascript" src="./js/fun.js"></script>
+<script type="text/javascript">
+var $$ = mdui.JQ;
+$$(document).ready(function(){
+$$.ajax({
+  method: 'GET',
+  url: './data/blackboard.json',
+  dataType: "json",
+  success: function (data) {
+var string = JSON.stringify(data); 
+var arr = JSON.parse(string);
+  function changeContent({src:src,alt:alt,name:name,identify:identify,code:code,description:description}) {
+  $$('.avatar').prop({
+     src: src,
+     alt: alt
+  });
+  $$('.name').html(name);
+  $$('.identify').html(identify);
+  $$('.code').html(code);
+  $$('.description').html(description);
+}
+function getDataFromArr(id) {
+  let res;
+  $$.each(arr, function(i, item){
+    if (item.id == id) {
+      res = item;
+    }
+  });
+  return res;
+}
+$$(".btn").on('click',function(){
+  let id = $$(this).data('id');
+  let item = getDataFromArr(id);
+  changeContent(item)
+  })
+}
+});
+});
+</script>
+</head>
+<body>
+<div class="warp">
+	<img class="avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2959497679&spec=640" alt="H树" width="100px" height="100px"/>
+	<p class="name">
+		H树
+	</p>
+	<p class="identify">
+		小黑板最强甲方
+	</p>
+	<p class="code">
+		B000001
+	</p>
+	<p class="description">
+		稳重可靠
+	</p>
+</div>
+<button class="btn" data-id='1'>H树</button><button class="btn" data-id='2'>67</button><button class="btn" data-id='3'>月关</button>
+</body>
+</html>
