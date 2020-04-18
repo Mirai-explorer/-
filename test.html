@@ -1,9 +1,56 @@
-<!DOCTYPE html>
 <html>
 <head>
+<meta charset='UTF-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
-<meta charset='UTF-8' />
-<title>toggle测试</title>
+<title>测试</title>
+<style type="text/css">
+.container {
+    width: 90%;
+    height: auto;
+    margin: 5%;
+}
+.left {
+    height: 75px;
+    width: 120px;
+    float: left;
+}
+.right{
+    width: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.right::-webkit-scrollbar {
+    display: none; /*不展示横向滚动条*/
+}
+.slide_son{
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+}
+.avatar{
+    width: 50px;
+    height: 50px;
+    margin:0 5px;
+    display: block;
+    border-radius: 50%;
+    background: url('https://s1.ax1x.com/2020/04/18/JmCZ6g.jpg') no-repeat center;
+    background-size:cover;
+}
+#1 {
+
+}
+.slide_price{
+    color: red;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+
+    line-height: 30px;
+    width: 60px;
+display: flex;
+    justify-content:center;
+    align-items:center;
+}
+</style>
 <script type="text/javascript" src="./js/fun.js"></script>
 <script type="text/javascript">
 var $$ = mdui.JQ;
@@ -16,7 +63,7 @@ $$.ajax({
 var string = JSON.stringify(data); 
 var arr = JSON.parse(string);
   function changeContent({src:src,alt:alt,name:name,identify:identify,code:code,description:description}) {
-  $$('.avatar').prop({
+  $$('.avatar-l').prop({
      src: src,
      alt: alt
   });
@@ -34,7 +81,7 @@ function getDataFromArr(id) {
   });
   return res;
 }
-$$(".btn").on('click',function(){
+$$(".avatar").on('click',function(){
   let id = $$(this).data('id');
   let item = getDataFromArr(id);
   changeContent(item)
@@ -46,7 +93,7 @@ $$(".btn").on('click',function(){
 </head>
 <body>
 <div class="warp">
-	<img class="avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2959497679&spec=640" alt="H树" width="100px" height="100px"/>
+	<img class="avatar-l" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2959497679&spec=640" alt="H树" width="100px" height="100px"/>
 	<p class="name">
 		H树
 	</p>
@@ -60,6 +107,43 @@ $$(".btn").on('click',function(){
 		稳重可靠
 	</p>
 </div>
-<button class="btn" data-id='1'>H树</button><button class="btn" data-id='2'>67</button><button class="btn" data-id='3'>月关</button>
+<div class="container">
+<div class="left">
+<div class="slide_son">
+<div class="avatar" data-id="1"></div>
+<span class="slide_price">1</span>
+</div>
+</div>
+<div class="right">
+            <div class="slide_son">
+                <div class="avatar" data-id="2"></div>
+                <span class="slide_price">2</span>
+            </div>
+            <div class="slide_son">
+                <div class="avatar" data-id="3"></div>
+                <span class="slide_price">3</span>
+            </div>
+            <div class="slide_son">
+                <div class="avatar" data-id="4"></div>
+                <span class="slide_price">4</span>
+            </div>
+            <div class="slide_son">
+                <div class="avatar" data-id="5"></div>
+                <span class="slide_price">5</span>
+            </div>
+            <div class="slide_son">
+                <div class="avatar" data-id="6"></div>
+                <span class="slide_price">6</span>
+            </div>
+            <div class="slide_son">
+                <div class="avatar" data-id="7"></div>
+                <span class="slide_price">7</span>
+            </div>
+            <div class="slide_son">
+                <div class="avatar" data-id="8"></div>
+                <span class="slide_price">8</span>
+            </div>
+</div>
+</div>
 </body>
 </html>
