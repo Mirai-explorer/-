@@ -109,13 +109,12 @@ body {
 }
 
 .tag-area {
-  margin-left: 0 15px;
+  padding-left: 10px;
   display: table;
 }
 
 .tag {
   margin: 10px 5px;
-
 }
 
 .chip {
