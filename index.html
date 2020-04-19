@@ -127,7 +127,6 @@
   fill: currentColor;
   overflow: hidden;
 }
-
   </style>
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/this.css" />
@@ -136,21 +135,21 @@
 var $$ = mdui.JQ;
 document.onreadystatechange = documentReadyState;
 loading();
-//页面状态处理
+
 function documentReadyState() {
-  if (document.readyState === "complete") {
+  if (document.readyState == "complete") {
     completed();
   }
 }
-//加载中显示遮罩
+
 function loading() {
   $$('.loader')
     .show();
 }
-//加载完成，隐藏遮罩
+
 function completed() {
   $$('.loader')
-    .hide(1000);
+    .hide();
 }
 
   </script>
@@ -395,7 +394,7 @@ $$(document)
         function getDataFromArr(id) {
           let res;
           $$.each(arr, function(i, item) {
-            if (item.id === id) {
+            if (item.id == id) {
               res = item;
             }
           });
