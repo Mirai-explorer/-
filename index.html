@@ -151,7 +151,7 @@
       queryAgent();
       function queryAgent() {
         const str = navigator.userAgent;
-        if((str.match(/iPhone/i)) || (str.match(/iPad/i))) {
+        if((str.match(/iPhone/i)) || (str.match(/iPad/i)) || (str.match(/Mac/i))) {
           $$("#ios").show();
         } else if (str.match(/Android/i)) {
           $$("#android").show();
