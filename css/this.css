@@ -139,3 +139,53 @@ body {
   display: table-cell;
   vertical-align: baseline;    
 }
+
+/* 滑动信息框 */
+.container {
+    width: 90%;
+    height: auto;
+    margin: 5%;
+}
+
+.left {
+    height: 75px;
+    width: 120px;
+    float: left;
+}
+
+.right {
+    width: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.right::-webkit-scrollbar {
+    display: none; /*不展示横向滚动条*/
+}
+
+.avatar-box {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+}
+
+.character-avatar {
+    width: 50px;
+    height: 50px;
+    margin:0 5px;
+    display: block;
+    border-radius: 50%;
+    background: url('https://s1.ax1x.com/2020/04/18/JmCZ6g.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.avatar-name {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    line-height: 30px;
+    width: 60px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
