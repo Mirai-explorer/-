@@ -86,6 +86,7 @@
     </style>
     <script type="text/javascript" src="./js/fun.js"></script>
     <script>
+      var $$ = mdui.JQ;
       document.onreadystatechange = documentReadyState;
       loading();
       //页面状态处理
@@ -108,12 +109,11 @@
   </head>
   
   <body class="mdui-appbar-with-toolbar mdui-theme-primary-red mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
-  <div class="shade">
     <div class="spinner">
-  <div class="double-bounce1"></div>
-  <div class="double-bounce2"></div>
-</div>
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
     </div>
+    <div class="shade"></div>
     <header class="mdui-appbar mdui-appbar-fixed">
       <div class="mdui-toolbar mdui-color-theme">
         <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
