@@ -125,9 +125,10 @@ body {
   height: 25px;
   background-color: #f44336;
   display: table-cell;
-    &:active {
-    background-color: #f73b2d;
-  }
+}
+
+.chip:active {
+  background-color: #f73b2d;
 }
 
 .chip-title {
