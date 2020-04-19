@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/this.css" />
     <style type="text/css">
-      .shadow{
+      .shade {
     width:100%;
     height:100%;
     position:absolute;
@@ -84,8 +84,7 @@
         fill: currentColor;
         overflow: hidden; }
     </style>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js">
-    </script>
+    <script type="text/javascript" src="./js/fun.js"></script>
     <script>
       document.onreadystatechange = documentReadyState;
       loading();
@@ -98,23 +97,23 @@
 
       //加载中显示遮罩
       function loading() {
-        $('.spinner').show();
+        $$('.shade').show();
         return;
       }
       //加载完成，隐藏遮罩
       function completed() {
-        $('.spinner').hide();
+        $$('.shade').hide();
       }
-    </script>
-    <script type="text/javascript" src="./js/fun.js">
     </script>
   </head>
   
   <body class="mdui-appbar-with-toolbar mdui-theme-primary-red mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
+  <div class="shade">
     <div class="spinner">
   <div class="double-bounce1"></div>
   <div class="double-bounce2"></div>
 </div>
+    </div>
     <header class="mdui-appbar mdui-appbar-fixed">
       <div class="mdui-toolbar mdui-color-theme">
         <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
