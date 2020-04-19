@@ -99,11 +99,13 @@
       //加载中显示遮罩
       function loading() {
         $$('.shade').show();
+        $$('.spinner').show();
         return;
       }
       //加载完成，隐藏遮罩
       function completed() {
         $$('.shade').hide();
+        $$('.spinner').hide();
       }
     </script>
   </head>
