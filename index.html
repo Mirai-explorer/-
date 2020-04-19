@@ -26,66 +26,88 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/this.css" />
     <style type="text/css">
-      .shade {
-    width:100%;
-    height:100%;
-    position:absolute;
-    left:0;
-    top:0;
-    z-index:998;
-    opacity: 1;
-    background-color:#f44336;
-    display:block;
-    }
-      .spinner {
-  width: 40px;
-  height: 40px;
-  z-index: 999;
-  position: relative;
-  margin: 100px auto;
-}
-
-.double-bounce1, .double-bounce2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #fff;
-  opacity: 0.6;
+.base {
+  height: 9em;
+  left: 50%;
+  margin: -7.5em;
+  padding: 3em;
   position: absolute;
-  top: 0;
-  left: 0;
-  
-  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-  animation: sk-bounce 2.0s infinite ease-in-out;
+  top: 50%;
+  width: 9em;
+  transform: rotateX(45deg) rotateZ(45deg);
+  transform-style: preserve-3d;
 }
 
-.double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+.cube,
+.cube:after,
+.cube:before {
+  content: '';
+  float: left;
+  height: 3em;
+  position: absolute;
+  width: 3em;
 }
 
-@-webkit-keyframes sk-bounce {
-  0%, 100% { -webkit-transform: scale(0.0) }
-  50% { -webkit-transform: scale(1.0) }
+/* Top */
+.cube {
+  background-color: #05afd1;
+  position: relative;
+  transform: translateZ(3em);
+  transform-style: preserve-3d;
+  transition: .25s;
+  box-shadow: 13em 13em 1.5em rgba(0, 0, 0, 0.1);
+  animation: anim 1s infinite;
+}
+.cube:after {
+  background-color: #049dbc;
+  transform: rotateX(-90deg) translateY(3em);
+  transform-origin: 100% 100%;
+}
+.cube:before {
+  background-color: #048ca7;
+  transform: rotateY(90deg) translateX(3em);
+  transform-origin: 100% 0;
+}
+.cube:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.cube:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.cube:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.cube:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.cube:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.cube:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.cube:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.cube:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.cube:nth-child(9) {
+  animation-delay: 0.45s;
 }
 
-@keyframes sk-bounce {
-  0%, 100% { 
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 50% { 
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
+@keyframes anim {
+  50% {
+    transform: translateZ(0.5em);
   }
 }
-      i {
-      font-size: 24px; } 
       .icon { 
         width: 1em; height: 1em; vertical-align: -0.15em;
         fill: currentColor;
         overflow: hidden; }
     </style>
     <script type="text/javascript" src="./js/fun.js"></script>
+    <script type="text/javascript" src="./js/loader.js"></script>
     <script>
       var $$ = mdui.JQ;
       document.onreadystatechange = documentReadyState;
@@ -99,24 +121,28 @@
 
       //加载中显示遮罩
       function loading() {
-        $$('.shade').show();
-        $$('.spinner').show();
+        $$('.base').show();
         return;
       }
       //加载完成，隐藏遮罩
       function completed() {
-        $$('.shade').hide();
-        $$('.spinner').hide();
+        $$('.base').hide();
       }
     </script>
   </head>
   
   <body class="mdui-appbar-with-toolbar mdui-theme-primary-red mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
-    <div class="spinner">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
-    </div>
-    <div class="shade"></div>
+  <div class='base'>
+  <div class='cube'></div>
+  <div class='cube'></div>
+  <div class='cube'></div>
+  <div class='cube'></div>
+  <div class='cube'></div>
+  <div class='cube'></div>
+  <div class='cube'></div>
+  <div class='cube'></div>
+  <div class='cube'></div>
+</div>
     <header class="mdui-appbar mdui-appbar-fixed">
       <div class="mdui-toolbar mdui-color-theme">
         <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
