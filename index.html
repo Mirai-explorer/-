@@ -153,15 +153,12 @@
       queryAgent();
       function queryAgent() {
         const str = navigator.userAgent;
-        let windows = RegExp(/Windows/);
-        let android = RegExp(/Android/);
-        let ios = RegExp(/iPhone/ || /iPad/);
-        if (str.match(windows) != null) {
-          $$("#windows").show();
-        } else if (str.match(android) != null) {
-          $$("#android").show();
-        } else if (str.match(ios) != null) {
+        if((str.match(/iPhone/i)) || (str.match(/iPad/i))) {
           $$("#ios").show();
+        } else if (str.match(/Android/i)) {
+          $$("#android").show();
+        } else if (str.match(/Windows/i)) {
+          $$("#windows").show();
         }
       }
     });
