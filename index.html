@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +18,8 @@
   <meta name="keywords" content="妖灵会馆,妖灵会馆传送系统,小黑的木头板,罗小黑战记">
   <meta name="author" content="Aubrey Tang">
   <title> 小黑的木头板 </title>
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png（180*180）">
-  <link rel="icon" href="/favicon.ico（32*32）">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
   <style type="text/css">
 .loader {
   position: fixed;
@@ -139,7 +138,7 @@ document.onreadystatechange = documentReadyState;
 loading();
 //页面状态处理
 function documentReadyState() {
-  if (document.readyState == "complete") {
+  if (document.readyState === "complete") {
     completed();
   }
 }
@@ -147,7 +146,6 @@ function documentReadyState() {
 function loading() {
   $$('.loader')
     .show();
-  return;
 }
 //加载完成，隐藏遮罩
 function completed() {
@@ -358,10 +356,7 @@ function completed() {
     <option value="5"> State 5 </option>
     <option value="6"> State 6 </option>
   </select>
-  <script type="text/javascript" src="https://at.alicdn.com/t/font_1651592_yi7c2gwb56.js">
-
-
-  </script>
+  <script type="text/javascript" src="https://at.alicdn.com/t/font_1651592_yi7c2gwb56.js"></script>
   <script type="text/javascript">
 var $$ = mdui.JQ;
 $$(document)
@@ -371,8 +366,8 @@ $$(document)
       url: './data/blackboard.json',
       dataType: "json",
       success: function(data) {
-        var string = JSON.stringify(data);
-        var arr = JSON.parse(string);
+        const string = JSON.stringify(data);
+        const arr = JSON.parse(string);
 
         function changeContent({
           src: src,
@@ -400,7 +395,7 @@ $$(document)
         function getDataFromArr(id) {
           let res;
           $$.each(arr, function(i, item) {
-            if (item.id == id) {
+            if (item.id === id) {
               res = item;
             }
           });
@@ -416,8 +411,6 @@ $$(document)
       }
     });
   });
-
   </script>
 </body>
-
 </html>
