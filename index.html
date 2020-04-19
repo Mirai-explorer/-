@@ -155,7 +155,7 @@
         const str = navigator.userAgent;
         let windows = RegExp(/Windows/);
         let android = RegExp(/Android/);
-        let ios = RegExp(/iPhone/);
+        let ios = RegExp(/iPhone/ || /iPad/);
         if (str.match(windows) != null) {
           $$("#windows").show();
         } else if (str.match(android) != null) {
