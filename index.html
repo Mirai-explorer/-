@@ -32,7 +32,8 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-z-index: 1001;        
+z-index: 1001;
+        background-color: #000;
       }
 .base {
   height: 9em;
@@ -134,7 +135,7 @@ z-index: 1001;
       }
       //加载完成，隐藏遮罩
       function completed() {
-        $$('.base').hide();
+        $$('.base').hide(1000);
       }
     </script>
   </head>
