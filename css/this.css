@@ -29,7 +29,7 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: url('https://pic.images.ac.cn/image/5e9ed0d608d40.html') no-repeat center;
+  background: url('//pic.images.ac.cn/image/5e9ed0d608d40.html') no-repeat center;
   background-size: cover;
 }
 /* https://ae01.alicdn.com/kf/H901bfb2702f94d5f862145418896c5fa5.jpg */
@@ -40,7 +40,7 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 20%;
-  background: url('https://q2.qlogo.cn/headimg_dl?dst_uin=2959497679&spec=640') no-repeat center;
+  background: url('//q2.qlogo.cn/headimg_dl?dst_uin=2959497679&spec=640') no-repeat center;
   background-size: cover;
 }  
 
@@ -280,7 +280,7 @@ body {
     margin:0 5px;
     display: block;
     border-radius: 50%;
-    background: url('https://ae01.alicdn.com/kf/Hd0f4084470f54f5da735fbec202e7f70f.jpg') no-repeat center;
+    background: url('//ae01.alicdn.com/kf/Hd0f4084470f54f5da735fbec202e7f70f.jpg') no-repeat center;
     background-size: cover;
 }
 
