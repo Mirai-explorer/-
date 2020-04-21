@@ -1,165 +1,177 @@
 body {
-  font-family:'Metrolite Two Com','方正正黑简体';
+    font-family:'Metrolite Two Com','方正正黑简体';
+}
+
+#theme-toggle {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-align: left;
+    font-size: 16px;
+    display: list-item;
 }
 
 .typo-title{
-  font-size: 24px;
-  letter-spacing: 0.1em;
+    font-size: 24px;
+    letter-spacing: 0.1em;
 }
 
 .card {
-  margin: 15px -4%;
+    margin: 15px -4%;
 }
 
 .card-primary {
-  padding: 10px 15px;
+    padding: 10px 15px;
 }
 
 .card-header {
-  position: relative;
-  height: 72px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 24px 16px 16px 16px;
+    position: relative;
+    height: 72px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 24px 16px 16px 16px;
 }
 
 /* 卡片头部头像 */
 .card-primary-avatar {
-  float: right;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: url('//pic.images.ac.cn/image/5e9ed0d608d40.html') no-repeat center;
-  background-size: cover;
+    float: right;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: url('//pic.images.ac.cn/image/5e9ed0d608d40.html') no-repeat center;
+    background-size: cover;
 }
 /* https://ae01.alicdn.com/kf/H901bfb2702f94d5f862145418896c5fa5.jpg */
 
 .card-character-avatar {
-  float: left;
-  margin: 35px 10px;
-  width: 80px;
-  height: 80px;
-  border-radius: 20%;
-  background: url('//q2.qlogo.cn/headimg_dl?dst_uin=2959497679&spec=640') no-repeat center;
-  background-size: cover;
-}  
+    float: left;
+    margin: 35px 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+    background: url('//q2.qlogo.cn/headimg_dl?dst_uin=2959497679&spec=640') no-repeat center;
+    background-size: cover;
+}
 
 .c1-divider {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .card-content {
-  padding: 8px 16px;
+    padding: 8px 16px;
 }
 
 .card-content,.panel-item-header {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 /* 搜索框 */
 .search-box {
-  width: 50px;
-  height: 50px;
-  position: relative; z-index: 999;
+    width: 50px;
+    height: 50px;
+    position: relative; z-index: 999;
 }
 .search-box #search {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  background: #517bd6;
-  border-radius: 50%;
-  transition: all 1s;
-  z-index: 4;
-  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background: #517bd6;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
 }
 .search-box #search:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .search-box #search::before {
-  content: "";
-  position: absolute;
-  margin: auto;
-  top: 18px;
-  right: 0;
-  bottom: 0;
-  left: 18px;
-  width: 10px;
-  height: 2px;
-  background: white;
-  transform: rotate(45deg);
-  transition: all .5s;
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 18px;
+    right: 0;
+    bottom: 0;
+    left: 18px;
+    width: 10px;
+    height: 2px;
+    background: white;
+    transform: rotate(45deg);
+    transition: all .5s;
 }
 .search-box #search::after {
-  content: "";
-  position: absolute;
-  margin: auto;
-  top: -3px;
-  right: 0;
-  bottom: 0;
-  left: -3px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid white;
-  transition: all .5s;
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: -3px;
+    right: 0;
+    bottom: 0;
+    left: -3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: all .5s;
 }
 .search-box input {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  /* left: 0; */
-  width: 40px;
-  height: 40px;
-  outline: none;
-  border: none;
-  background: #fff;
-  color: #777;
-  border-radius: 30px;
-  box-shadow: 0 0 25px 0 #517bd6, 0 0px 15px 0 rgba(0, 0, 0, 0.5);
-  transition: all 1s;
-  opacity: 0;
-  z-index: 5;
-  font-weight: bolder;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* left: 0; */
+    width: 40px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: #fff;
+    color: #777;
+    border-radius: 30px;
+    box-shadow: 0 0 25px 0 #517bd6, 0 0px 15px 0 rgba(0, 0, 0, 0.5);
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
 }
 .search-box input:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .search-box input:focus {
-  width: 300px;
-  padding: 0 80px 0 20px;
-  opacity: 1;
-  cursor: text;
+    width: 300px;
+    padding: 0 80px 0 20px;
+    opacity: 1;
+    cursor: text;
 }
 .search-box input:focus ~ .search {
-  right: 0px;
-  background: #f60;
-  z-index: 6;
+    right: 0px;
+    background: #f60;
+    z-index: 6;
 }
 .search-box input:focus ~ .search::before {
-  top: 0;
-  left: 0;
-  width: 25px;
+    top: 0;
+    left: 0;
+    width: 25px;
 }
 .search-box input:focus ~ .search::after {
-  top: 0;
-  left: 0;
-  width: 25px;
-  height: 2px;
-  border: none;
-  background: white;
-  border-radius: 0%;
-  transform: rotate(-45deg);
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    border: none;
+    background: white;
+    border-radius: 0%;
+    transform: rotate(-45deg);
 }
 .search-box input::placeholder {
-  color: #777;
-  opacity: 0.8;
+    color: #777;
+    opacity: 0.8;
 }
 /* 在顶部导航栏中添加黑色背景颜色 */
 /* 设置导航栏的链接样式 */
@@ -172,19 +184,19 @@ body {
     text-decoration: none;
     font-size: 17px;
 }
- 
+
 /* 在悬停时更改链接的颜色 */
 .topnav a:hover {
     background-color: #ddd;
     color: black;
 }
- 
+
 /* 突出显示当前选中的元素 */
 .topnav a.active {
     background-color: #2196F3;
     color: white;
 }
- 
+
 /* 设置导航栏的搜索框样式 */
 .topnav input[type=text] {
     float: right;
@@ -194,7 +206,7 @@ body {
     margin-right: 16px;
     font-size: 17px;
 }
- 
+
 /* 当屏幕宽度小于 600px 时，垂直堆叠显示菜单选项和搜索框 */
 @media screen and (max-width: 600px) {
     .topnav a, .topnav input[type=text] {
@@ -211,38 +223,38 @@ body {
 }
 
 .tag-area {
-  padding-left: 10px;
-  display: table;
+    padding-left: 10px;
+    display: table;
 }
 
 .tag {
-  margin: 10px 5px;
+    margin: 10px 5px;
 }
 
 .chip {
-  color: white;
-  text-align: center;
-  width: 60px;
-  height: 25px;
-  background-color: #f44336;
-  display: table-cell;
+    color: white;
+    text-align: center;
+    width: 60px;
+    height: 25px;
+    background-color: #f44336;
+    display: table-cell;
 }
 
 .chip:active {
-  background-color: #ff1100;
+    background-color: #ff1100;
 }
 
 .chip-title {
-  font-size: 16px;
-  height: 25px;
-  line-height: 25px;
-  vertical-align: baseline;
+    font-size: 16px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: baseline;
 }
 
 .chip-content {
-  padding-left: 10px;
-  display: table-cell;
-  vertical-align: baseline;    
+    padding-left: 10px;
+    display: table-cell;
+    vertical-align: baseline;
 }
 
 /* 滑动信息框 */
