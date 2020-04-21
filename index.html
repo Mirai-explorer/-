@@ -162,20 +162,18 @@
 </div>
 <header class="mdui-appbar mdui-appbar-fixed">
     <div class="mdui-toolbar mdui-color-theme">
-        <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}"> <i class="mdui-icon material-icons">
-            menu
-        </i> </button> <span class="mdui-typo-title typo-title">
+        <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
+            <i class="mdui-icon material-icons">menu</i>
+        </button>
+        <span class="mdui-typo-title typo-title">
           <script>
             document.write(document.title);
           </script>
         </span>
         <div class="mdui-toolbar-spacer"> </div>
-        <div class="search-box">
-            <input type="text" placeholder="输入关键词开始检索">
-            <button class="mdui-btn mdui-btn-icon" id="search"> <i class="mdui-icon material-icons">
-                search
-            </i> </button>
-        </div>
+        <button class="mdui-btn mdui-btn-icon">
+            <i class="mdui-icon material-icons">search</i>
+        </button>
         <button class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#extend-menu'}">
             <i class="mdui-icon material-icons">more_vert</i>
         </button>
@@ -275,13 +273,8 @@
                 </svg> QQ群 </div>
             <div class="mdui-panel mdui-panel-gapless" mdui-panel>
                 <div class="mdui-panel-item">
-                    <div class="mdui-panel-item-header panel-item-header"> 黑板自来水 610165419（点击展开一键加群通道） </div>
+                    <div class="mdui-panel-item-header panel-item-header">黑板自来水 610165419（点击展开）</div>
                     <div class="mdui-panel-item-body">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="52.316" height="28" viewBox="0 0 52.316 28" id="test">
-                            <g id="layer1" transform="translate(45.952 -448.367)">
-                                <path id="path80319" d="M188.413,452.007l4.34-7.175a.821.821,0,0,0-.319-1.147.893.893,0,0,0-1.2.3l-4.4,7.268a28.631,28.631,0,0,0-22.382,0l-4.4-7.268a.9.9,0,0,0-1.2-.3.817.817,0,0,0-.319,1.147l4.34,7.175a24.7,24.7,0,0,0-13.389,19.563h52.316A24.7,24.7,0,0,0,188.413,452.007Zm-24.774,12.551a2.1,2.1,0,1,1,2.193-2.093A2.145,2.145,0,0,1,163.638,464.558Zm24.017,0a2.1,2.1,0,1,1,2.193-2.093A2.145,2.145,0,0,1,187.655,464.558Z" transform="translate(-195.443 4.796)" fill="#32de84"/>
-                            </g>
-                        </svg>
                         <svg xmlns="http://www.w3.org/2000/svg" width="52.316" height="28" viewBox="0 0 52.316 28" id="android">
                             <g id="layer1" transform="translate(45.952 -448.367)">
                                 <a xlink:href="mqqapi://card/show_pslcard?src_type=internal&version=1&uin=610165419&card_type=group&source=qrcode" xlink:title="安卓用户点此图标" target="_blank">
@@ -679,15 +672,8 @@
                 $$("#windows").show();
             }
         }
-        $$("#test").on('click', function() {
-            mdui.snackbar({
-                message: '您已选择一键加群通道，需要再次确认后才会自动跳转'
-            });
-        });
-    });
-    $$(document)
-        .ready(function() {
-            $$.ajax({
+
+        $$.ajax({
                 method: 'GET',
                 url: './data/blackboard.json',
                 dataType: "json",
@@ -735,8 +721,8 @@
                             changeContent(item)
                         })
                 }
-            });
         });
+    });
 </script>
 </body>
 </html>
