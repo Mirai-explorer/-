@@ -308,29 +308,29 @@
                 <div class="card-character-avatar"> </div>
                 <div class="tag-area">
                     <div class="tag">
-                        <div class="mdui-chip chip"> <span class="mdui-chip-title chip-title">
-                    ID
-                  </span> </div> <span class="chip-content name">
-                  H树
-                </span> </div>
+                        <div class="mdui-chip chip">
+                            <span class="mdui-chip-title chip-title">ID</span>
+                        </div>
+                        <span class="chip-content name"></span>
+                    </div>
                     <div class="tag">
-                        <div class="mdui-chip chip"> <span class="mdui-chip-title chip-title">
-                    身份
-                  </span> </div> <span class="chip-content identify">
-                  小黑板最强甲方
-                </span> </div>
+                        <div class="mdui-chip chip">
+                            <span class="mdui-chip-title chip-title">身份</span>
+                        </div>
+                        <span class="chip-content identify"></span>
+                    </div>
                     <div class="tag">
-                        <div class="mdui-chip chip"> <span class="mdui-chip-title chip-title">
-                    编号
-                  </span> </div> <span class="chip-content code">
-                  B000001
-                </span> </div>
+                        <div class="mdui-chip chip">
+                            <span class="mdui-chip-title chip-title">编号</span>
+                        </div>
+                        <span class="chip-content code"></span>
+                    </div>
                     <div class="tag">
-                        <div class="mdui-chip chip"> <span class="mdui-chip-title chip-title">
-                    特性
-                  </span> </div> <span class="chip-content description">
-                  稳重可靠
-                </span> </div>
+                        <div class="mdui-chip chip">
+                            <span class="mdui-chip-title chip-title">特性</span>
+                        </div>
+                        <span class="chip-content description"></span>
+                    </div>
                 </div>
             </div>
             <div class="mdui-divider"> </div>
@@ -674,61 +674,65 @@
         }
 
         $$.ajax({
-                method: 'GET',
-                url: './data/blackboard.json',
-                dataType: "json",
-                success: function(data) {
-                    const string = JSON.stringify(data);
-                    const arr = JSON.parse(string);
-                    var url = [];
+            method: 'GET',
+            url: './data/blackboard.json',
+            dataType: "json",
+            success: function(data) {
+                const string = JSON.stringify(data);
+                const arr = JSON.parse(string);
+                const url = [];
+                function loadAvatar(){
                     arr.forEach(function(item){
-                      url.push(item.src)
+                        url.push(item.src)
                     })
-                    for(i = 0; i < url.length; i++){
-                      var num = i+1;
-                      $$('.character-avatar[data-id="'+ num +'"]').css('background-image','url("'+ url[i] +'")');
+                    for(let i = 0; i < url.length; i++){
+                        let num = i + 1;
+                        $$('.character-avatar[data-id="'+ num +'"]').css('background','url("'+ url[i] +'") no-repeat center');
                     }
-
-                    function changeContent({
-                                               src: src,
-                                               alt: alt,
-                                               name: name,
-                                               identify: identify,
-                                               code: code,
-                                               description: description
-                                           }) {
-                        $$('.card-character-avatar')
-                            .css({
-                                'background': 'url(' + src + ') no-repeat center',
-                                'background-size': 'cover'
-                            });
-                        $$('.name')
-                            .html(name);
-                        $$('.identify')
-                            .html(identify);
-                        $$('.code')
-                            .html(code);
-                        $$('.description')
-                            .html(description);
-                    }
-
-                    function getDataFromArr(id) {
-                        let res;
-                        $$.each(arr, function(i, item) {
-                            if (item.id == id) {
-                                res = item;
-                            }
-                        });
-                        return res;
-                    }
-                    $$(".character-avatar")
-                        .on('click', function() {
-                            let id = $$(this)
-                                .data('id');
-                            let item = getDataFromArr(id);
-                            changeContent(item)
-                        })
+                    $$('.character-avatar').css('background-size','cover');
                 }
+                loadAvatar();
+                function changeContent({
+                                           src: src,
+                                           alt: alt,
+                                           name: name,
+                                           identify: identify,
+                                           code: code,
+                                           description: description
+                                       }) {
+                    $$('.card-character-avatar')
+                        .css({
+                            'background': 'url("' + src + '") no-repeat center',
+                            'background-size': 'cover'
+                        });
+                    $$('.name')
+                        .html(name);
+                    $$('.identify')
+                        .html(identify);
+                    $$('.code')
+                        .html(code);
+                    $$('.description')
+                        .html(description);
+                }
+
+                function getDataFromArr(id) {
+                    let res;
+                    $$.each(arr, function(i, item) {
+                        if (item.id == id) {
+                            res = item;
+                        }
+                    });
+                    return res;
+                }
+                $$('.character-avatar')
+                    .on('click', function() {
+                        let id = $$(this)
+                            .data('id');
+                        let item = getDataFromArr(id);
+                        changeContent(item);
+                    })
+                $$('div[data-id="1"]').trigger("click");
+            }
         });
     });
 </script>
