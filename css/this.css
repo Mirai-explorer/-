@@ -43,8 +43,8 @@
 /* https://ae01.alicdn.com/kf/H901bfb2702f94d5f862145418896c5fa5.jpg */
 
 .card-character-avatar {
-    float: left;
-    margin: 35px 10px;
+    display: grid;
+    margin: auto 10px;
     width: 80px;
     height: 80px;
     border-radius: 20%;
@@ -55,6 +55,9 @@
 }
 
 .card-content {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: max-content;
     padding: 8px 16px;
 }
 
@@ -63,8 +66,8 @@
 }
 
 .tag-area {
+    display: grid;
     padding-left: 10px;
-    display: table;
 }
 
 .tag {
