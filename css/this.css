@@ -44,10 +44,10 @@
 
 .card-character-avatar {
     display: grid;
-    margin: auto 10px;
+    margin: auto 20px auto 10px;
     width: 80px;
     height: 80px;
-    border-radius: 20%;
+    border-radius: 25%;
 }
 
 .c1-divider {
@@ -55,10 +55,17 @@
 }
 
 .card-content {
+    padding: 8px 16px;
+}
+
+.card-content:first-child {
+    
+}
+
+.card-content:nth-child(2) {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: max-content;
-    padding: 8px 16px;
 }
 
 .card-content,.panel-item-header {
@@ -67,11 +74,10 @@
 
 .tag-area {
     display: grid;
-    padding-left: 10px;
 }
 
 .tag {
-    margin: 10px 5px;
+    margin: 6px 0;
 }
 
 .chip {
