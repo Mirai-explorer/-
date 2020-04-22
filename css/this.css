@@ -48,8 +48,6 @@
     width: 80px;
     height: 80px;
     border-radius: 20%;
-    background: url('//q2.qlogo.cn/headimg_dl?dst_uin=2959497679&spec=640') no-repeat center;
-    background-size: cover;
 }
 
 .c1-divider {
@@ -134,8 +132,6 @@
     margin:0 5px;
     display: block;
     border-radius: 50%;
-    background: url('//ae01.alicdn.com/kf/Hd0f4084470f54f5da735fbec202e7f70f.jpg') no-repeat center;
-    background-size: cover;
 }
 
 .avatar-name {
