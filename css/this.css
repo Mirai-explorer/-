@@ -58,11 +58,11 @@
     padding: 8px 16px;
 }
 
-.card:first-child.card-content {
+.card:first-child > .card-content {
     
 }
 
-.card:nth-child(2).card-content {
+.card:nth-child(2) > .card-content {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: max-content;
