@@ -680,6 +680,14 @@
                 success: function(data) {
                     const string = JSON.stringify(data);
                     const arr = JSON.parse(string);
+                    var url = [];
+                    arr.forEach(function(item){
+                      url.push(item.src)
+                    })
+                    for(i = 0; i < url.length; i++){
+                      var num = i+1;
+                      $$('.character-avatar[data-id="'+ num +'"]').css('background-image','url("'+ url[i] +'")');
+                    }
 
                     function changeContent({
                                                src: src,
