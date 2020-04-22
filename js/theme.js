@@ -3,7 +3,7 @@
  */
 (function () {
     var DEFAULT_PRIMARY = 'red';
-    var DEFAULT_ACCENT = 'orange';
+    var DEFAULT_ACCENT = 'deep-orange';
     var DEFAULT_LAYOUT = '';
 
     // 设置 cookie
