@@ -708,8 +708,8 @@
 
         $$.ajax({
             method: 'GET',
-            url: '//orange-sound-15b8.unicorn3.workers.dev',
-            dataType: "json",
+            url: 'https://orange-sound-15b8.unicorn3.workers.dev',
+            dataType: 'JSONP',
             success: function(data) {
                 const string = JSON.stringify(data);
                 const arr = JSON.parse(string);
