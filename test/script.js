@@ -29,6 +29,10 @@ butInstall.addEventListener('click', () => {
   });
 });
 
+window.addEventListener('appinstalled', (event) => {
+  console.log('👍', 'appinstalled', event);
+});
+
 /* Only register a service worker if it's supported */
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./service-worker.js');
