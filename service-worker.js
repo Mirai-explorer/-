@@ -74,3 +74,29 @@ self.addEventListener('fetch', (event) => {
   // event.respondWith(), the request will be handled by the browser as if there
   // were no service worker involvement.
 });
+
+// Try to use the preload
+const networkContent = Promise.resolve(event.preloadResponse)
+  // Else do a normal fetch
+  .then(r => r || fetch(includeURL))
+  // A fallback if the network fails.
+  .catch(() => caches.match('/article-offline.include'));
+
+const parts = [
+  caches.match('/article-top.include'),
+  networkContent,
+  caches.match('/article-bottom')
+];
+
+navigator.serviceWorker.ready.then(registration => {
+  return registration.navigationPreload.setHeaderValue(newValue);
+}).then(() => {
+  console.log('Done!');
+});
+
+navigator.serviceWorker.ready.then(registration => {
+  return registration.navigationPreload.getState();
+}).then(state => {
+  console.log(state.enabled); // boolean
+  console.log(state.headerValue); // string
+});
