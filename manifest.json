@@ -2,7 +2,7 @@
   "name": "妖灵会馆传送系统",
   "short_name": "传送系统",
   "lang": "zh-Hans",
-  "start_url": "./",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#fff",
   "description": "妖灵会馆传送系统为各位小伙伴提供快速便捷的会馆传送通道，找到属于自己的组织，同时也可在系统上查阅会馆的有关信息。",
