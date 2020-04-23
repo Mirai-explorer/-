@@ -3,6 +3,10 @@ self.addEventListener('install', (event) => {
     self.skipWaiting();
 });
 
+window.addEventListener('appinstalled', (event) => {
+  console.log('👍', 'appinstalled', event);
+});
+
 self.addEventListener('activate', (event) => {
     console.log('👷', 'activate', event);
     return self.clients.claim();
