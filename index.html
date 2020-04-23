@@ -709,7 +709,9 @@
         $$.ajax({
             method: 'GET',
             url: 'https://orange-sound-15b8.unicorn3.workers.dev',
-            dataType: 'JSONP',
+            dataType: 'jsonp',
+            jsonp : 'callback',
+            jsonpCallback: 'handleResponse',
             success: function(data) {
                 const string = JSON.stringify(data);
                 const arr = JSON.parse(string);
