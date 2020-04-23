@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="preconnect" href="//sp0.baidu.com">
-    <link rel="preconnect" href="//hm.baidu.com">
-    <link rel="preconnect" href="//ers.baidu.com">
     <link rel="preconnect" href="//q2.qlogo.cn">
-    <link rel="preconnect" href="//zz.bdstatic.com">
     <link rel="preload" href="./css/style.css" as="style">
     <link rel="preload" href="./js/fun.js" as="script">
     <meta name="renderer" content="webkit">
@@ -154,6 +150,10 @@
 
         function completed() {
             $$('.loader').hide();
+        }
+        
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./pwa/service-worker.js');
         }
         
         var _hmt = _hmt || [];
