@@ -9,6 +9,10 @@ window.addEventListener('beforeinstallprompt', (event) => {
   divInstall.classList.toggle('hidden', false);
 });
 
+window.addEventListener('appinstalled', (event) => {
+  console.log('👍', 'appinstalled', event);
+});
+
 butInstall.addEventListener('click', () => {
   console.log('👍', 'butInstall-clicked');
   const promptEvent = window.deferredPrompt;
@@ -27,10 +31,6 @@ butInstall.addEventListener('click', () => {
     // Hide the install button.
     divInstall.classList.toggle('hidden', true);
   });
-});
-
-window.addEventListener('appinstalled', (event) => {
-  console.log('👍', 'appinstalled', event);
 });
 
 /* Only register a service worker if it's supported */
