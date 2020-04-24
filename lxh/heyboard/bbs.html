@@ -28,7 +28,7 @@
         .card-title {
             font-size: 1.25rem;
             font-weight: 600;
-            line-height: 2rem;
+            line-height: 32px;
             border-left: 5px solid;
             padding-left: 5px;
             margin: 0.375rem 0;
@@ -37,8 +37,8 @@
             padding-left: 10px;
         }
         .card-content {
-            font-size: 1rem;
-            line-height: 1.875rem;
+            font-size: 16px;
+            line-height: 28px;
             padding: 16px 10px;
         }
         .divider {
@@ -147,8 +147,6 @@
 </div>
 <div class="mdui-container doc-container">
     <div class="mdui-col-xs-12">
-        <div class="mdui-card card">
-        </div>
     </div>   
 </div>
 <div class="mdui-dialog" id="dialog-theme" style="top: 96.906px; display:none; height: 775.188px;">
@@ -449,7 +447,7 @@
                                    var title = data2.content.title;
                                    var time = data2.content.created_at;
                                    var content = data2.content.answer.txt_content;
-                                   $$('.mdui-col-xs-12').append('<div class="mdui-card card"><div class="mdui-card-primary card-primary"><div class="mdui-card-primary-title card-title mdui-text-color-theme"><span></span>'+ title +'</div><div class="mdui-card-primary-subtitle card-subtitle">'+ time +'<div></div><div class="mdui-divider divider mdui-text-color-theme-divider"></div><div class="mdui-card-content card-content">'+ content +'</div></div>')
+                                   $$('.mdui-col-xs-12').append('<div class="card mdui-card"><div class=" card-primary mdui-card-primary"><div class="card-title mdui-card-primary-title mdui-text-color-theme">'+ title +'</div><div class="card-subtitle mdui-card-primary-subtitle">'+ time +'</div><div class="divider mdui-divider mdui-text-color-theme-divider"></div><div class="card-content mdui-card-content">'+ content +'</div></div>')
                            }})
     }})
 </script>
