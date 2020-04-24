@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Start of Baidu Transcode -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="mobile-agent" content="format=html5;url=https://miraiexp.com/">
+    <meta name="baidu-site-verification" content="HXfHROluQx" />
+    <!-- End of Baidu Transcode -->
+    <meta name="description" content="这里是小黑板的公告板">
+    <meta name="keywords" content="小黑的木头板，小黑板，小黑板的公告板">
+    <meta name="author" content="Aubrey Tang">
+    <title> 小黑的木头板 </title>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/this.css" />
+    <script type="text/javascript" src="/js/fun.js"></script>
+    <script>
+
+    </script>
+</head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-red mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
+<header class="mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
+            <i class="mdui-icon material-icons">menu</i>
+        </button>
+        <span class="mdui-typo-title typo-title">
+          <script>
+            document.write(document.title);
+          </script>
+        </span>
+        <div class="mdui-toolbar-spacer"> </div>
+        <button class="mdui-btn mdui-btn-icon">
+            <i class="mdui-icon material-icons">search</i>
+        </button>
+        <button class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#extend-menu'}">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </button>
+        <ul class="mdui-menu" id="extend-menu">
+            <button class="mdui-menu-item" mdui-dialog="{target: '#dialog-theme'}" id="theme-toggle">
+                <a class="mdui-ripple"><i class="mdui-menu-item-icon mdui-icon material-icons">color_lens</i>设置主题</a>
+            </button>
+            <li class="mdui-menu-item">
+                <a href="//github.com/Mirai-explorer" target="_blank" class="mdui-ripple">
+                    <i class="mdui-menu-item-icon mdui-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-GitHub"></use></svg></i>My GitHub</a>
+            </li>
+            <li class="mdui-divider"></li>
+            <li class="mdui-menu-item">
+                <a href="//github.com/Mirai-explorer" target="_blank" class="mdui-ripple">
+                    <i class="mdui-menu-item-icon mdui-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-GitHub"></use></svg></i>My GitHub</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="mdui-drawer" id="left-drawer">
+    <div class="list">
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons">
+                home
+            </i>
+                <div class="mdui-list-item-content"> 妖灵会馆传送系统 </div>
+            </li>
+            <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons">
+                dashboard
+            </i>
+                <div class="mdui-list-item-content"> Dashboard </div>
+            </li>
+            <li class="mdui-collapse-item mdui-collapse-item-open">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons">
+                    people
+                </i>
+                    <div class="mdui-list-item-content"> Audience </div> <i class="mdui-collapse-item-arrow mdui-icon material-icons">
+                        keyboard_arrow_down
+                    </i> </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    <li class="mdui-list-item mdui-ripple"> Overview </li>
+                    <li class="mdui-list-item mdui-ripple"> Language </li>
+                    <li class="mdui-list-item mdui-ripple"> Location </li>
+                    <li class="mdui-list-item mdui-ripple"> New vs Returning </li>
+                </ul>
+            </li>
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons">
+                    device_hub
+                </i>
+                    <div class="mdui-list-item-content"> Acquisition </div> <i class="mdui-collapse-item-arrow mdui-icon material-icons">
+                        keyboard_arrow_down
+                    </i> </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    <li class="mdui-list-item mdui-ripple"> Overview </li>
+                    <li class="mdui-list-item mdui-ripple"> All Traffic </li>
+                    <li class="mdui-list-item mdui-ripple"> Direct Traffic </li>
+                    <li class="mdui-list-item mdui-ripple"> Search Overview </li>
+                </ul>
+            </li>
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons">
+                    touch_app
+                </i>
+                    <div class="mdui-list-item-content"> Behavior </div> <i class="mdui-collapse-item-arrow mdui-icon material-icons">
+                        keyboard_arrow_down
+                    </i> </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    <li class="mdui-list-item mdui-ripple"> Overview </li>
+                    <li class="mdui-list-item mdui-ripple"> All Pages </li>
+                    <li class="mdui-list-item mdui-ripple"> Landing Pages </li>
+                    <li class="mdui-list-item mdui-ripple"> Exit Pages </li>
+                </ul>
+            </li>
+            <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons">
+                shopping_cart
+            </i>
+                <div class="mdui-list-item-content"> Ecommerce </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="mdui-container doc-container">
+    <div class="mdui-col-xs-12">
+        <div class="mdui-card card">
+        </div>
+    </div>   
+</div>
+<div class="mdui-dialog" id="dialog-theme" style="top: 96.906px; display:none; height: 775.188px;">
+    <div class="mdui-dialog-title">设置网站主题</div>
+    <div class="mdui-dialog-content" style="height: 655.188px;">
+        <p class="mdui-typo-title">主题色</p>
+        <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
+            <div class="mdui-col">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-layout" value="">
+                    <i class="mdui-radio-icon"></i>
+                    明亮 Light
+                </label>
+            </div>
+            <div class="mdui-col">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-layout" value="dark" checked="">
+                    <i class="mdui-radio-icon"></i>
+                    暗黑 Dark
+                </label>
+            </div>
+        </div>
+        <p class="mdui-typo-title mdui-text-color-theme">主色</p>
+        <form class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
+            <div class="mdui-col mdui-text-color-amber">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="amber" checked="">
+                    <i class="mdui-radio-icon"></i>
+                    琥珀色 Amber
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-blue">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="blue">
+                    <i class="mdui-radio-icon"></i>
+                    蓝色 Blue
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-blue-grey">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="blue-grey">
+                    <i class="mdui-radio-icon"></i>
+                    蓝灰色 Blue Grey
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-brown">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="brown">
+                    <i class="mdui-radio-icon"></i>
+                    棕褐色 Brown
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-cyan">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="cyan">
+                    <i class="mdui-radio-icon"></i>
+                    青色 Cyan
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-deep-orange">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="deep-orange">
+                    <i class="mdui-radio-icon"></i>
+                    深橙色 Deep Orange
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-deep-purple">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="deep-purple">
+                    <i class="mdui-radio-icon"></i>
+                    深紫色 Deep Purple
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-green">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="green">
+                    <i class="mdui-radio-icon"></i>
+                    绿色 Green
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-grey">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="grey">
+                    <i class="mdui-radio-icon"></i>
+                    灰色 Grey
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-indigo">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="indigo">
+                    <i class="mdui-radio-icon"></i>
+                    靛蓝色 Indigo
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-light-blue">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="light-blue">
+                    <i class="mdui-radio-icon"></i>
+                    浅蓝色 Light Blue
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-light-green">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="light-green">
+                    <i class="mdui-radio-icon"></i>
+                    浅绿色 Light Green
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-lime">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="lime">
+                    <i class="mdui-radio-icon"></i>
+                    酸橙色 Lime
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-orange">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="orange">
+                    <i class="mdui-radio-icon"></i>
+                    橘黄色 Orange
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-pink">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="pink">
+                    <i class="mdui-radio-icon"></i>
+                    粉红色 Pink
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-purple">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="purple">
+                    <i class="mdui-radio-icon"></i>
+                    紫色 Purple
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-red">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="red">
+                    <i class="mdui-radio-icon"></i>
+                    红色 Red
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-teal">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="teal">
+                    <i class="mdui-radio-icon"></i>
+                    蓝绿色 Teal
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-yellow">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-primary" value="yellow">
+                    <i class="mdui-radio-icon"></i>
+                    黄色 Yellow
+                </label>
+            </div>
+        </form>
+        <p class="mdui-typo-title mdui-text-color-theme-accent">强调色</p>
+        <form class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
+            <div class="mdui-col mdui-text-color-amber">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="amber">
+                    <i class="mdui-radio-icon"></i>
+                    琥珀色 Amber
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-blue">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="blue">
+                    <i class="mdui-radio-icon"></i>
+                    蓝色 Blue
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-cyan">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="cyan">
+                    <i class="mdui-radio-icon"></i>
+                    青色 Cyan
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-deep-orange">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="deep-orange">
+                    <i class="mdui-radio-icon"></i>
+                    深橙色 Deep Orange
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-deep-purple">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="deep-purple">
+                    <i class="mdui-radio-icon"></i>
+                    深紫色 Deep Purple
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-green">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="green">
+                    <i class="mdui-radio-icon"></i>
+                    绿色 Green
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-indigo">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="indigo">
+                    <i class="mdui-radio-icon"></i>
+                    靛蓝色 Indigo
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-light-blue">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="light-blue">
+                    <i class="mdui-radio-icon"></i>
+                    浅蓝色 Light Blue
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-light-green">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="light-green">
+                    <i class="mdui-radio-icon"></i>
+                    浅绿色 Light Green
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-lime">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="lime">
+                    <i class="mdui-radio-icon"></i>
+                    酸橙色 Lime
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-orange">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="orange">
+                    <i class="mdui-radio-icon"></i>
+                    橘黄色 Orange
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-pink">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="pink" checked="">
+                    <i class="mdui-radio-icon"></i>
+                    粉红色 Pink
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-purple">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="purple">
+                    <i class="mdui-radio-icon"></i>
+                    紫色 Purple
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-red">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="red">
+                    <i class="mdui-radio-icon"></i>
+                    红色 Red
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-teal">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="teal">
+                    <i class="mdui-radio-icon"></i>
+                    蓝绿色 Teal
+                </label>
+            </div>
+            <div class="mdui-col mdui-text-color-yellow">
+                <label class="mdui-radio mdui-m-b-1">
+                    <input type="radio" name="doc-theme-accent" value="yellow">
+                    <i class="mdui-radio-icon"></i>
+                    黄色 Yellow
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple mdui-float-left" mdui-dialog-cancel="">恢复默认主题</button>
+        <button class="mdui-btn mdui-ripple" mdui-dialog-confirm="">ok</button>
+    </div>
+</div>
+</body>
+</html>
