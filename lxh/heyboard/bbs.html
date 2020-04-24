@@ -24,7 +24,6 @@
 
     </style>
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/this.css" />
     <script type="text/javascript" src="/js/fun.js"></script>
     <script>
 
@@ -411,5 +410,28 @@
         <button class="mdui-btn mdui-ripple" mdui-dialog-confirm="">ok</button>
     </div>
 </div>
+<srcipt>
+    var $$ = mdui.JQ;
+    $$.ajax({
+                async: 'false',
+                method: 'GET',
+                url: 'https://apiv3.popiask.cn/unuser/getQuestionFromUser/heyboard',
+                dataType: "json",
+                success: function(data) {
+                    console.log(data.content.data[0].title);
+                    var id = data.content.data[0].visit_code;
+                    $$.ajax({
+                               async:'false',
+                               method: 'GET',
+                               url: 'https://apiv3.popiask.cn/unuser/questionVisitCode/'+id,
+                               dataType: 'json',
+                               success: function(data2) {
+                                   console.log(data2.content.answer.txt_content);
+                                   var title = data2.content.title;
+                                   var time = data2.content.created_at;
+                                   var content = data2.content.answer.txt_content;
+                                   $$('.mdui-col-xs-12').append('<div class="mdui-card"><div class="mdui-card-primary"><div class="mdui-card-primary-title">'+ title +'</div><div class="mdui-card-primary-subtitle">'+ time +'</p><div></div><div class="mdui-divider"></div><div class="mdui-card-content">'+ content +'</div></div>')
+                           }})
+    }})
 </body>
 </html>
