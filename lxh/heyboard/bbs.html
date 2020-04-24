@@ -21,15 +21,34 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <style>
-
+        .card {
+            margin: 8px 0;
+            letter-spacing: 0.1rem
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 2rem;
+            border-left: 5px solid;
+            padding-left: 5px;
+            margin: 0.375rem 0;
+        }
+        .card-subtitle {
+            padding-left: 10px;
+        }
+        .card-content {
+            font-size: 1rem;
+            line-height: 1.875rem;
+            padding: 16px 10px;
+        }
+        .divider {
+            margin: 8px 0;
+        }
     </style>
     <link rel="stylesheet" href="/css/style.css" />
     <script type="text/javascript" src="/js/fun.js"></script>
-    <script>
-
-    </script>
 </head>
-<body class="mdui-appbar-with-toolbar mdui-theme-primary-red mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
+<body class="mdui-appbar-with-toolbar mdui-color-theme mdui-theme-accent mdui-loaded mdui-drawer-body-left">
 <header class="mdui-appbar mdui-appbar-fixed">
     <div class="mdui-toolbar mdui-color-theme">
         <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
@@ -430,9 +449,10 @@
                                    var title = data2.content.title;
                                    var time = data2.content.created_at;
                                    var content = data2.content.answer.txt_content;
-                                   $$('.mdui-col-xs-12').append('<div class="mdui-card"><div class="mdui-card-primary"><div class="mdui-card-primary-title">'+ title +'</div><div class="mdui-card-primary-subtitle">'+ time +'</p><div></div><div class="mdui-divider"></div><div class="mdui-card-content">'+ content +'</div></div>')
+                                   $$('.mdui-col-xs-12').append('<div class="mdui-card card"><div class="mdui-card-primary card-primary"><div class="mdui-card-primary-title card-title mdui-text-color-theme"><span></span>'+ title +'</div><div class="mdui-card-primary-subtitle card-subtitle">'+ time +'<div></div><div class="mdui-divider divider mdui-text-color-theme-divider"></div><div class="mdui-card-content card-content">'+ content +'</div></div>')
                            }})
     }})
 </script>
+<script type="text/javascript" src="/js/theme.js"></script>
 </body>
 </html>
