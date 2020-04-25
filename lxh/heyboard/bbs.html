@@ -429,6 +429,15 @@
     </div>
 </div>
 <script>
+function sleep(n) {
+    var start = new Date().getTime();
+    while (true) {
+        var time = new Date().getTime();
+        if (time - start > n) {
+            break;
+        }
+    }
+}
     var $$ = mdui.JQ;
     $$.ajax({
     async: 'false',
@@ -456,6 +465,7 @@
                     $$('.mdui-col-xs-12').append('<div class="card mdui-card"><div class=" card-primary mdui-card-primary"><div class="card-title mdui-card-primary-title mdui-text-color-theme">' + title + '</div><div class="card-subtitle mdui-card-primary-subtitle">' + time + '</div><div class="divider mdui-divider mdui-text-color-theme-divider"></div><div class="card-content mdui-card-content">' + content + '</div></div>')
                 }
             })
+            sleep(500);
         }
     }
 })
