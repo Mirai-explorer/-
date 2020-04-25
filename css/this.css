@@ -19,6 +19,10 @@
     color:rgba(255,255,255,.87);
 }
 
+.mdui-textfield-input {
+    cursor: text;
+}
+
 .card {
     margin: 15px -4%;
 }
