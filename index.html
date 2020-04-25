@@ -31,7 +31,7 @@
     <link rel="apple-touch-icon" sizes="180×180" href="/apple-touch-icon.png">
     <link rel="icon" sizes="32×32" href="/favicon.ico">
     <link rel="manifest" href="./data/manifest.json">
-    <style type="text/css">
+    <style>
         .loader {
             position: fixed;
             top: 0;
@@ -181,9 +181,9 @@
         </span>
         <div class="mdui-toolbar-spacer"></div>
         <div class="mdui-textfield mdui-textfield-expandable mdui-float-right">
-            <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
+            <button class="mdui-textfield-icon mdui-btn mdui-btn-icon" id="search"><i class="mdui-icon material-icons">search</i></button>
             <input class="mdui-textfield-input" type="text" placeholder="Search"/>
-            <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
+            <button class="mdui-textfield-close mdui-btn mdui-btn-icon" id="close"><i class="mdui-icon material-icons">close</i></button>
         </div>
         <button class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#extend-menu'}">
             <i class="mdui-icon material-icons">more_vert</i>
@@ -716,7 +716,13 @@
                 $$("#windows").show();
             }
         }
-
+                             
+      $$('#search').on('click', function (e) {
+        $$('.typo-title').hide()
+      }
+      $$('#close').off('click', function (e) {
+        $$('.typo-title').show()
+      }
         $$.ajax({
             method: 'GET',
             url: './data/blackboard.json', 
