@@ -717,11 +717,10 @@
             }
         }
                              
-      $$('#search').on('click', function (e) {
+      $$('#search').on('click', function () {
         $$('.typo-title').hide()
       });
-      $$('#close').off('click', function (f) {
-        $$('#search').on('click');
+      $$('#close').on('click', function () {
         $$('.typo-title').show();
       });
         $$.ajax({
