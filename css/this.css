@@ -15,6 +15,10 @@
     letter-spacing: 0.1em;
 }
 
+.mdui-textfield-focus .mdui-icon, .mdui-textfield-focus .mdui-textfield-floating-label.mdui-textfield-focus .mdui-textfield-label, .mdui-textfield-focus .mdui-textfield-label{
+    color:rgba(255,255,255,.87);
+}
+
 .card {
     margin: 15px -4%;
 }
