@@ -179,10 +179,12 @@
             document.write(document.title);
           </script>
         </span>
-        <div class="mdui-toolbar-spacer"> </div>
-        <button class="mdui-btn mdui-btn-icon">
-            <i class="mdui-icon material-icons">search</i>
-        </button>
+        <div class="mdui-toolbar-spacer"></div>
+        <div class="mdui-textfield mdui-textfield-expandable mdui-float-right">
+            <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
+            <input class="mdui-textfield-input" type="text" placeholder="Search"/>
+            <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
+        </div>
         <button class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#extend-menu'}">
             <i class="mdui-icon material-icons">more_vert</i>
         </button>
