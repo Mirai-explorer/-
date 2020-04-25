@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-Hans">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,8 +22,17 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css" />
     <style>
+        body {
+            background-color: #f6f6f6;
+        }
+        .typo-tilte {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.1rem;
+        }
         .card {
             margin: 10px 0;
+            background-color: #fefefe;
             letter-spacing: 0.1rem;
             animation: bounceInLeft 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
             animation-fill-mode: forwards;
@@ -69,7 +78,7 @@
     </style>
     <script type="text/javascript" src="/js/fun.js"></script>
 </head>
-<body class="mdui-appbar-with-toolbar mdui-color-theme mdui-theme-accent mdui-loaded mdui-drawer-body-left">
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-theme-accent-blue-grey mdui-loaded">
 <header class="mdui-appbar mdui-appbar-fixed">
     <div class="mdui-toolbar mdui-color-theme">
         <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
@@ -448,6 +457,7 @@
         <button class="mdui-btn mdui-ripple" mdui-dialog-confirm="">ok</button>
     </div>
 </div>
+<script>var $$ = mdui.JQ</script>
 <script type="text/javascript" src="/js/theme.js"></script>
 <script>
 function sleep(n) {
@@ -459,7 +469,6 @@ function sleep(n) {
         }
     }
 }
-    var $$ = mdui.JQ;
     $$.ajax({
     async: 'false',
     method: 'GET',
