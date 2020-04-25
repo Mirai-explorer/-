@@ -41,6 +41,7 @@
             font-size: 16px;
             line-height: 30px;
             padding: 5px 10px;
+            white-space: pre-wrap;
         }
         .divider {
             margin: 5px 0;
@@ -430,26 +431,34 @@
 <script>
     var $$ = mdui.JQ;
     $$.ajax({
+    async: 'false',
+    method: 'GET',
+    url: 'https://apiv3.popiask.cn/unuser/getQuestionFromUser/heyboard?pageSize=100',
+    dataType: "json",
+    success: function(json) {
+        const string = JSON.stringify(json.content.data);
+        const arr = JSON.parse(string);
+        const id = [];
+        arr.forEach(function(item) {
+            id.push(item.visit_code)
+        }) console.log(id);
+        for (let i = 0; i < id.length; i++) {
+            $$.ajax({
                 async: 'false',
                 method: 'GET',
-                url: 'https://apiv3.popiask.cn/unuser/getQuestionFromUser/heyboard',
-                dataType: "json",
-                success: function(data) {
-                    console.log(data.content.data[0].title);
-                    var id = data.content.data[0].visit_code;
-                    $$.ajax({
-                               async:'false',
-                               method: 'GET',
-                               url: 'https://apiv3.popiask.cn/unuser/questionVisitCode/'+id,
-                               dataType: 'json',
-                               success: function(data2) {
-                                   console.log(data2.content.answer.txt_content);
-                                   var title = data2.content.title;
-                                   var time = data2.content.created_at;
-                                   var content = data2.content.answer.txt_content;
-                                   $$('.mdui-col-xs-12').append('<div class="card mdui-card"><div class=" card-primary mdui-card-primary"><div class="card-title mdui-card-primary-title mdui-text-color-theme">'+ title +'</div><div class="card-subtitle mdui-card-primary-subtitle">'+ time +'</div><div class="divider mdui-divider mdui-text-color-theme-divider"></div><div class="card-content mdui-card-content">'+ content +'</div></div>')
-                           }})
-    }})
+                url: 'https://apiv3.popiask.cn/unuser/questionVisitCode/' + id[i],
+                dataType: 'json',
+                success: function(data2) {
+                    console.log(data2);
+                    let title = data2.content.title;
+                    let time = data2.content.created_at;
+                    let content = data2.content.answer.txt_content;
+                    $$('.mdui-col-xs-12').append('<div class="card mdui-card"><div class=" card-primary mdui-card-primary"><div class="card-title mdui-card-primary-title mdui-text-color-theme">' + title + '</div><div class="card-subtitle mdui-card-primary-subtitle">' + time + '</div><div class="divider mdui-divider mdui-text-color-theme-divider"></div><div class="card-content mdui-card-content">' + content + '</div></div>')
+                }
+            })
+        }
+    }
+})
 </script>
 <script type="text/javascript" src="/js/theme.js"></script>
 </body>
