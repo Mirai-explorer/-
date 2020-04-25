@@ -720,8 +720,9 @@
       $$('#search').on('click', function (e) {
         $$('.typo-title').hide()
       });
-      $$('#close').off('click', function (e) {
-        $$('.typo-title').show()
+      $$('#close').off('click', function (f) {
+        $$('#search').on('click');
+        $$('.typo-title').show();
       });
         $$.ajax({
             method: 'GET',
