@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="mdc-typography" lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" >
+    <title>动画</title>
+    <meta name="description" content="Utilities for declarative, DOM-based initialization of components on simple web sites." />
+    <link href="/library/material-design/fonts.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/library/material-design/codemirror.css">
+    <link rel="stylesheet" href="/library/material-design/neo.css">
+    <link rel="stylesheet" href="/library/material-design/app.css">
+    <style>
+    </style>
+</head>
+<body class="page page--detail page--components page--platform-web">
+<div class = "page__content page__flex-element">
+    <section class="page__main-section">
+        <article class="page__article article article--icon-animation">
+            <h1 id="animation">动画</h1>
+            <p>运动中的材料反应灵敏而自然。使用这些缓和曲线和持续时间模式来创建平滑且一致的运动。</p>
+            <h2 id="design--api-documentation">设计与 API 文档</h2>
+            <ul class="icon-list">
+                <li class="icon-list-item icon-list-item--spec">
+                    <a href="https://material.io/go/design-motion">材料设计指南：运动</a>
+                </li>
+            </ul>
+            <h2 id="installation">安装</h2>
+            <div class="CodeMirror cm-s-neo"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 17px; left: 140.5px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 59px; min-width: 275px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 139.5px; top: 0px; height: 27px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">npm</span> <span class="cm-variable">install</span> <span class="cm-attribute">@material</span><span class="cm-operator">/</span><span class="cm-variable">animation</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 0px solid transparent; top: 59px;"></div><div class="CodeMirror-gutters" style="display: none; height: 72px;"></div></div></div>
+            <h2 id="usage">用法</h2>
+            <h3 id="sass-variables">Sass 变量</h3>
+            <p>我们提供可与 <code>animation</code> 或 <code>transition</code> CSS 属性配合使用的定时功能</p>
+            <div class="CodeMirror cm-s-neo"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 17px; left: 60.5313px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 167px; min-width: 619px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>&#8203;</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 59.5313px; top: 0px; height: 27px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">@use</span> <span class="cm-string">"@material/animation"</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-qualifier">.my-element--animating</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-property">animation</span>: <span class="cm-variable">foo-keyframe</span> <span class="cm-number">175ms</span> <span class="cm-variable">animation</span>.$<span class="cm-variable">standard-curve-timing-function</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 0px solid transparent; top: 167px;"></div><div class="CodeMirror-gutters" style="display: none; height: 180px;"></div></div></div>
+            <table>
+                <thead>
+                <tr>
+                    <th>变量</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>$deceleration-curve-timing-function</code></td>
+                    <td>定时功能：减速</td>
+                </tr>
+                <tr>
+                    <td><code>$standard-curve-timing-function</code></td>
+                    <td>定时功能：快速加速后缓慢减速</td>
+                </tr>
+                <tr>
+                    <td><code>$acceleration-curve-timing-function</code></td>
+                    <td>定时功能：加速</td>
+                </tr>
+                <tr>
+                    <td><code>$sharp-curve-timing-function</code></td>
+                    <td>定时功能：快速加速后减速</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>下面的函数根据 <code>$name</code> 和 <code>$duration</code> 来创建过渡效果。您还可以指定 <code>$delay</code>，但默认值是0ms。 <code>$name</code> 可以引用关键帧，也可以引用 <code>transition</code> 中的 CSS 属性。</p>
+            <div class="CodeMirror cm-s-neo"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 17px; left: 140.484px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="bottom: 17px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="display: block; right: 0px; left: 0px;"><div style="height: 100%; min-height: 1px; width: 875px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true" style="height: 17px; width: 17px;"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 356px; min-width: 875px; padding-right: 0px; padding-bottom: 17px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 139.484px; top: 0px; height: 27px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">@use</span> <span class="cm-string">"@material/animation"</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-qualifier">.my-element</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-property">transition</span>: <span class="cm-variable">animation</span><span class="cm-qualifier">.exit-permanent</span>(<span class="cm-comment">/* $name: */</span> <span class="cm-atom">opacity</span>, <span class="cm-comment">/* $duration: */</span> <span class="cm-number">175ms</span>, <span class="cm-comment">/* $delay: */</span> <span class="cm-number">150ms</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-property">will-change</span>: <span class="cm-atom">opacity</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-atom">&amp;</span><span class="cm-variable-2">--animating</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-property">transition</span>: <span class="cm-variable">animation</span><span class="cm-qualifier">.enter</span>(<span class="cm-comment">/* $name: */</span> <span class="cm-atom">opacity</span>, <span class="cm-comment">/* $duration: */</span> <span class="cm-number">175ms</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-property">opacity</span>: <span class="cm-number">1</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 17px solid transparent; top: 356px;"></div><div class="CodeMirror-gutters" style="display: none; height: 386px;"></div></div></div>
+            <div class="CodeMirror cm-s-neo"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 17px; left: 193.766px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 491px; min-width: 627px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 192.766px; top: 0px; height: 27px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">@use</span> <span class="cm-string">"@material/animation"</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">@keyframes</span> <span class="cm-variable">fade-in</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-tag">from</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-property">transform</span>: <span class="cm-atom">translateY</span>(<span class="cm-number">-80px</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-tag">to</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-property">transform</span>: <span class="cm-atom">translateY</span>(<span class="cm-number">0</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-property">opacity</span>: <span class="cm-number">1</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-qualifier">.my-element</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-property">animation</span>: <span class="cm-variable">animation</span><span class="cm-qualifier">.enter</span>(<span class="cm-comment">/* $name: */</span> <span class="cm-variable">fade-in</span>, <span class="cm-comment">/* $duration: */</span> <span class="cm-number">350ms</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 0px solid transparent; top: 491px;"></div><div class="CodeMirror-gutters" style="display: none; height: 504px;"></div></div></div>
+            <table>
+                <thead>
+                <tr>
+                    <th>函数</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>enter($name, $duration, $delay)</code></td>
+                    <td>定义进入帧的过渡</td>
+                </tr>
+                <tr>
+                    <td><code>exit-permanent($name, $duration, $delay)</code></td>
+                    <td>定义彻底退出帧的过渡</td>
+                </tr>
+                <tr>
+                    <td><code>exit-temporary($name, $duration, $delay)</code></td>
+                    <td>定义临时退出帧的过渡</td>
+                </tr>
+                </tbody>
+            </table>
+            <h3 id="javascript">JavaScript</h3>
+            <p>这些函数处理用于各种浏览器的前缀</p>
+            <div class="CodeMirror cm-s-neo"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 17px; left: 167.109px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 113px; min-width: 595px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 166.109px; top: 0px; height: 27px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> {<span class="cm-def">getCorrectEventName</span>} <span class="cm-keyword">from</span> <span class="cm-string">'@material/animation'</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">eventToListenFor</span> <span class="cm-operator">=</span> <span class="cm-variable">getCorrectEventName</span>(<span class="cm-variable">window</span>, <span class="cm-string">'animationstart'</span>);</span></pre></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 0px solid transparent; top: 113px;"></div><div class="CodeMirror-gutters" style="display: none; height: 126px;"></div></div></div>
+            <table>
+                <thead>
+                <tr>
+                    <th>方法声明</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>getCorrectEventName(windowObj: Window, eventType: StandardJsEventType) =&gt; StandardJsEventType \| PrefixedJsEventType</code></td>
+                    <td>返回 JavaScript 事件名，必要时加上前缀。关于受支持的值，请参阅 <a href="https://github.com/material-components/material-components-web/tree/master/packages/mdc-animation/types.ts"><code>types.ts</code></a></td>
+                </tr>
+                <tr>
+                    <td><code>getCorrectPropertyName(windowObj: Window, cssProperty: StandardCssPropertyName) =&gt; StandardCssPropertyName \| PrefixedCssPropertyName</code></td>
+                    <td>返回 CSS 属性名，必要时加上前缀。关于受支持的值，请参阅 <a href="https://github.com/material-components/material-components-web/tree/master/packages/mdc-animation/types.ts"><code>types.ts</code></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+</div>
+</body>
+</html>
