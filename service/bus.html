@@ -42,6 +42,14 @@
 <div class="input-card">
     <h4>地图自适应</h4>
     <input id="setFitView" type="button" class="btn" value="地图自适应显示" />
+	<input id="refresh" type="button" class="btn" value="刷新" />
+	<select id="select">
+		<option value="1" data-dir="0" selected>1路（上行）</option>
+		<option value="702" data-dir="0">702路（上行）</option>
+		<option value="702" data-dir="1">702路（下行）</option>
+		<option value="703" data-dir="0">703路（上行）</option>
+		<option value="703" data-dir="1">703路（下行）</option>
+	</select>
 </div>
 <div class="info">
     <div id="centerCoord"></div>
@@ -148,11 +156,25 @@
 	}
 	onCenter();
     
-    setInterval(function () {
-		$('#tips').empty();
-		map.clearMap();
-		addPins();
-		onCenter();
+	function localInitial(){
+		$('#tips').empty()
+		map.clearMap()
+		addPins()
+		onCenter()
+	}
+	
+	$('#select').on('change',function(){
+		let num = $("#select option:selected").val()
+		let dir = $("#select option:selected").attr("data-dir")
+		localInitial()
+	})
+	
+	$('#refresh').on('click',function(){
+		localInitial()
+	})
+	
+	setInterval(function(){
+		localInitial()
 	}, 10000);
 </script>
 </body>
