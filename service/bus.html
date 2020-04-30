@@ -58,8 +58,8 @@
 <script type="text/javascript" src="//webapi.amap.com/maps?v=1.4.15&key=01879f83f7b83834ea4e3f975b759c64"></script>
 <script type="text/javascript">
     function query(callback) {
-    var num = "703"
-    var dir = 1
+    let num = $("#select option:selected").val()
+    let dir = $("#select option:selected").attr("data-dir")
     $.ajax({
         async: false,
         url: "https://bird.ioliu.cn/v1?url=http://bus.wuhancloud.cn:9087/website/web/420100/search.do",
@@ -176,6 +176,14 @@
 	setInterval(function(){
 		localInitial()
 	}, 10000);
+	
+	var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1fc7beaeddd272dc5554cd5c50abaf65";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
 </script>
 </body>
 </html>
