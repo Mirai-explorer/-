@@ -102,8 +102,8 @@
     }
     var map = new AMap.Map('container', {
         resizeEnable: true,
-        center: [114.41880637995253,30.50712449525211],
-        zoom: 15
+        center: [114.355799,30.561318],
+        zoom: 13
     });
 
     map.clearMap();  // 清除地图覆盖物
@@ -119,7 +119,7 @@
     }
 
     // 添加一些分布不均的点到地图上,地图上添加三个点标记，作为参照
-
+	function addPins() {
     mark(function (markers) {
         markers.forEach(function (marker) {
             console.log(markers)
@@ -131,7 +131,10 @@
             });
         });
     })
+	}
+	addPins();
 
+	function onCenter() {
     var center = map.getCenter();
 
     var centerText = '当前中心点坐标：' + center.getLng() + ',' + center.getLat();
@@ -142,6 +145,15 @@
         var newCenter = map.setFitView();
         document.getElementById('centerCoord').innerHTML = '当前中心点坐标：' + newCenter.getCenter();
     });
+	}
+	onCenter();
+    
+    setInterval(function () {
+		$('#tips').empty();
+		map.clearMap();
+		addPins();
+		onCenter();
+	}, 10000);
 </script>
 </body>
 </html>
