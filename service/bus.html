@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <title>武汉实时公交</title>
     <link rel="stylesheet" href="./css/bus.css"/>
@@ -55,14 +54,14 @@
     var dir = 1
     $.ajax({
         async: false,
-        url: "http://bus.wuhancloud.cn:9087/website/web/420100/search.do",
+        url: "https://bird.ioliu.cn/v1?url=http://bus.wuhancloud.cn:9087/website/web/420100/search.do",
         type: "GET",
         data: {"keyword":num,"type":"line"},
         success: function (str) {
             var id = str.data.lines[dir].lineId
             $.ajax({
                 async: false,
-                url: "http://bus.wuhancloud.cn:9087/website/web/420100/line/"+id+".do",
+                url: "https://bird.ioliu.cn/v1?url=http://bus.wuhancloud.cn:9087/website/web/420100/line/"+id+".do",
                 type: "GET",
                 data: {"Type":"LineDetail"},
                 success: function (str) {
