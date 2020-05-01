@@ -10,7 +10,7 @@
 
 ## 官方网站
 
-1. 源站：http://potplayer.daum.net/?lang=zh_CN（受到长城防火墙限制，内地用户可能无法正常访问）
+1. 源站：http://potplayer.daum.net/?lang=zh_CN （受到长城防火墙限制，内地用户可能无法正常访问）
 2. 英语克隆节点：https://daumpotplayer.com/
 3. 中文克隆节点：https://potplayer.org/
 
