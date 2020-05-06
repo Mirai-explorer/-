@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <style>
+        /* DOM规范化 */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            visibility: hidden;
+            height: 0;
+            clear: both;
+            font-size: 0;
+            zoom: 1;
+        }
+
+        /* app容器 */
+        .main-container {
+            margin: 20px 67.5px;
+            width: calc(100% - 135px);
+            max-width: fit-content;
+            height: auto;
+        }
+
+        /* 左侧整体 */
+        .main-container .left-section {
+            width: 100%;
+        }
+
+        /* 播放器功能模块 */
+        .player-module {
+            height: 558px;
+            width: 100%;
+            position: relative;
+        }
+
+        .player-module #unicorn.unicorn-player {
+            position: relative;
+            background-color: #333;
+            width: 100%;
+            height: 100%;
+            z-index: 130;
+        }
+
+        .player-module #unicorn.unicorn-player .player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mirai-player {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin: 0 auto;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 4px;
+            text-align: left;
+            -webkit-box-shadow: 0 0 8px #e5e9ef;
+            box-shadow: 0 0 8px #e5e9ef;
+            white-space: nowrap;
+            zoom: 1;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .mirai-player * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* 播放操作区 */
+        .mirai-player-area {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            pointer-events: auto;
+        }
+
+        /* 播放器皮肤 */
+        .mirai-player-area .player-wrap {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            min-height: 0;
+            z-index: auto;
+            overflow: hidden;
+            background-color: #000;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mirai-player-area .player-wrap .top {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            visibility: hidden;
+            opacity: 0;
+            color: #fff;
+            z-index: 15;
+            pointer-events: none;
+            -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+
+        .mirai-player-area.video-control-show .top {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .top-mask {
+            display: none;
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==) repeat-x top;
+            -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+
+        .top-pgc .top-mask {
+            display: block;
+        }
+
+        .top-title {
+            opacity: 0;
+            width: 100%!important;
+            margin: 18px 0 0 19px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
+            pointer-events: all;
+            z-index: 2;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .top-pgc .top-title {
+            opacity: 1;
+        }
+
+        .top-follow {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 0;
+            -ms-flex: none;
+            flex: none;
+            min-width: 64px;
+            margin: 18px 5px 0 0;
+            height: 24px;
+            line-height: 24px;
+            border-radius: 12px;
+            background: rgba(0,0,0,.4);
+            pointer-events: all;
+            opacity: 0;
+            visibility: hidden;
+            text-align: center;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .top-follow {
+
+        }
+
+        .top-feedback {
+            -webkit-box-flex: 0;
+            -ms-flex: none;
+            flex: none;
+            min-width: 36px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            margin: 18px 12px 0;
+            font-size: 12px;
+            pointer-events: all;
+            cursor: pointer;
+            z-index: 2;
+            color: #fff;
+            border-radius: 12px;
+        }
+
+        .mirai-player .player-wrap .video-play-state {
+            display: none;
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            cursor: pointer;
+            z-index: 67;
+            right: 34px;
+            bottom: 50px;
+            pointer-events: none;
+        }
+
+        .mirai-player-area.video-state-pause .player-wrap .video-play-state {
+            display: block;
+        }
+
+        .video-play-state .video-state-play {
+            margin-top: 10px;
+        }
+
+        .player-svgicon, .player-svgicon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .player-svgicon{
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-transition: fill .3s;
+            transition: fill .3s;
+            vertical-align: middle;
+            display: inline-block;
+            font-size: 0;
+        }
+
+        .mirai-player-video-state-buff {
+            display: none;
+        }
+
+        svg:not(:root) {
+            overflow: hidden;
+        }
+
+        .mirai-player .player-wrap .player-control-wrap {
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==) repeat-x bottom;
+            -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            z-index: 50;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .mirai-player-area.video-control-show .player-wrap .player-control-wrap {
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: opacity .2s ease-in;
+            transition: opacity .2s ease-in;
+        }
+
+        .mirai-player .player-wrap .player-control-wrap .video-control {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 71;
+            height: 44px;
+            line-height: 36px;
+            zoom: 1;
+        }
+
+        .mirai-player .player-wrap .player-control-wrap .video-control-bottom {
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            height: 29px;
+            line-height: 22px;
+            margin: 14px 0 0;
+            opacity: 0;
+            -webkit-transition: all .2s ease-out;
+            transition: all .2s ease-out;
+        }
+
+        .mirai-player .player-wrap .video-control .video-btn {
+            cursor: pointer;
+            text-align: center;
+            width: 36px;
+            color: hsla(0,0%,100%,.8);
+            fill: hsla(0,0%,100%,.9);
+            font-size: 0;
+            z-index: 2;
+        }
+
+        .mirai-player .player-wrap .video-control .video-control-bottom-left .video-btn {
+            height: 22px;
+            line-height: 22px;
+        }
+
+        .mirai-player .player-wrap .video-control .video-btn .player-iconfont-start {
+            width: 36px;
+            margin-left: -12px;
+            padding-left: 12px;
+        }
+
+        .mirai-player .player-wrap .video-control .video-control-bottom-left > div {
+            float: left;
+        }
+
+        .mirai-player.mode-widescreen .mirai-player-area {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .mirai-player .player-wrap .video-danmu {
+            overflow: hidden;
+        }
+
+        .danmu-item {
+            user-select: none;
+            position: absolute;
+            white-space: pre;
+            pointer-events: none;
+            perspective: 500px;
+            display: inline-block;
+            will-change: transform;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            font-family: SimHei, "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            line-height: 1.125;
+            opacity: 1;
+            text-shadow: rgb(0, 0, 0) 1px 0 1px, rgb(0, 0, 0) 0 1px 1px, rgb(0, 0, 0) 0 -1px 1px, rgb(0, 0, 0) -1px 0 1px;
+            left: 1090px;
+            top: 0;
+            transform: translateX(-1892px) translateY(0px) translateZ(0px);
+            transition: -webkit-transform 7.87962s linear 0s;
+        }
+
+        .mirai-player .player-wrap .video-container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .mirai-player .player-wrap .video-container video {
+            display: block;
+            width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    <script src="/js/jquery-3.5.0.js"></script>
+    <script>
+        $('video').ready(function () {
+            $('.mirai-player-area').addClass('video-state-pause')
+        })
+
+        setInterval(function () {
+            $('video').on('timeupdate',function() {
+                let s = parseInt($('video').get(0).currentTime)
+                let m = 0
+                let ts = parseInt($('video').get(0).duration)
+                let tm = 0
+                if (s >= 60) {
+                    m = parseInt(s / 60);
+                    s = Math.round(s % 60);
+                }
+                if (ts >= 60) {
+                    tm = parseInt(ts / 60);
+                    ts = Math.round(ts % 60);
+                }
+                s=s<10?"0"+s:s;
+                m=m<10?"0"+m:m;
+                ts=ts<10?"0"+ts:ts;
+                tm=tm<10?"0"+tm:tm;
+                $('.test-box span').get(0).innerText= m+':'+s+'/'+tm+':'+ts
+                const r = 255
+                let g = 118
+                const b = 39
+                
+            })
+        },100)
+
+        $(document).on({
+            keydown: function (event) {
+                console.log(event.keyCode)
+                const time = 5
+                const vol = 0.1
+                const video = $('video').get(0)
+                switch (event.keyCode) {
+                    case 32:
+                        video.paused === true ? video.play() : video.pause()
+                        const player = $('.mirai-player-area')
+                        video.paused !== true ? player.removeClass('video-state-pause') : player.addClass('video-state-pause')
+                        break
+                    case 37:
+                        video.currentTime !== 0 ? video.currentTime -= time : 0
+                        break
+                    case 39:
+                        video.currentTime !== video.duration ? video.currentTime += time : 0
+                        break
+                    case 38:
+                        video.volume !== 1 ? video.volume = (video.volume * 1000 + vol * 1000) / 1000 : 1
+                        break
+                    case 40:
+                        video.volume !== 0 ? video.volume = (video.volume * 1000 - vol * 1000) / 1000 : 0
+                        break
+                    case 70:
+                        video.fullscreenEnabled !== true ? video.requestFullscreen() : null
+                        break
+                }
+            },
+            click: function () {
+                const video = $('video').get(0)
+                video.paused === true ? video.play() : video.pause()
+                const player = $('.mirai-player-area')
+                video.paused !== true ? player.removeClass('video-state-pause') : player.addClass('video-state-pause')
+            },
+            mousemove: function () {
+                $('.mirai-player-area').addClass('video-control-show')
+                setTimeout(function () {
+                    $('.mirai-player-area').removeClass('video-control-show')
+                },3000)
+            }
+        })
+
+        $('.video-control').hover(function () {
+            $('.mirai-player-area').addClass('video-control-show')
+        }, function(){
+            $('.mirai-player-area').removeClass('video-control-show')
+        })
+    </script>
+</head>
+<body>
+<div id="app" class="main-container clearfix">
+    <div class="left-section">
+        <div id="player_module" class="player-module">
+            <div id="unicorn" class="unicorn-player">
+                <div class="player">
+                    <div id="miraiPlayer" class="mirai-player relative">
+                        <div class="mirai-player-area video-state-blackside">
+                            <div class="player-wrap">
+                                <div class="top top-pgc">
+                                    <div class="top-mask"></div>
+                                    <div class="top-title">中国梦，我的梦</div>
+                                    <div class="top-follow"></div>
+                                    <div class="top-feedback"></div>
+                                </div><!-- 播放器顶部区域 -->
+                                <div class="video-play-state">
+                                    <span class="video-state-play mirai-player-iconfont">
+                                        <span class="player-svgicon">
+                                            <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <defs>
+                                                    <filter x="-11.2%" y="-10.8%" width="122.4%" height="125.5%" id="pid-1-svgo-a">
+                                                        <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                                                        <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                                                        <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+                                                        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0" in="shadowBlurOuter1"></feColorMatrix>
+                                                    </filter>
+                                                    <path d="M52.352 13.5c4.837 0 8.707 4.32 8.647 9.72v21.06C61 49.62 57.128 54 52.29 54h-2.479c0 1.681-1.452 3-3.206 3S43.4 55.62 43.4 54H20.841c0 1.681-1.452 3-3.204 3-1.756 0-3.206-1.38-3.206-3h-2.722C6.87 54 3 49.68 3 44.28V23.22c0-5.4 3.87-9.72 8.709-9.72h11.25l-4.78-4.44c-.725-.661-.725-1.8 0-2.52.424-.36.908-.54 1.391-.54.546 0 1.029.18 1.392.54l7.5 6.96h7.318l7.5-6.96c.422-.36.907-.54 1.39-.54.544 0 1.029.18 1.392.54.725.659.725 1.8 0 2.52l-4.78 4.44h11.07zM26.527 45.54l17.418-10.08c1.45-.901 1.45-2.221 0-3.122L26.527 22.2c-1.452-.84-2.662-.12-2.662 1.56v20.22c0 1.74 1.21 2.4 2.662 1.561z" id="pid-1-svgo-b"></path>
+                                                </defs>
+                                                <g fill="none" fill-rule="evenodd">
+                                                    <use fill="#000" filter="url(#pid-1-svgo-a)" xlink:href="#pid-1-svgo-b"></use>
+                                                    <use fill-opacity=".7" fill="#FFF" xlink:href="#pid-1-svgo-b"></use>
+                                                    <path d="M26.527 45.541c-1.452.84-2.662.18-2.662-1.56V23.76c0-1.68 1.21-2.4 2.662-1.56L43.945 32.34c1.45.9 1.45 2.22 0 3.121L26.527 45.541z" fill="#000" opacity=".06"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </span>
+                                    <img class="mirai-player-video-state-buff" src="//s1.hdslb.com/bfs/static/player/img/loading.gif" alt="buffering">
+                                </div><!-- 播放状态显示 -->
+                                <div class="player-panel"></div><!-- 播放器顶部区域 -->
+                                <div class="pop-up"></div><!-- 播放器顶部区域 -->
+                                <div class="video-subtitle"></div><!-- 视频标题 -->
+                                <div class="video-danmu">
+                                    <div class="danmu-item">Hi, there</div><!-- 单条弹幕 -->
+                                </div><!-- 播放弹幕 -->
+                                <div class="video-container">
+                                    <video preload="auto" src="//ugcws.video.gtimg.com/uwMROfz2r5zCIaQXGdGnC2dfJ7xVXKbtPOti4lz6jGfpFpyW/j0527xhvidu.p712.1.mp4?sdtfrom=v1010&guid=518a47f23b014ef20cd6fce9ce0f9272&vkey=F2F1937004ECEEA510A560F4B93447C94A8A90791CFB10E05DCC9BED59E2180154432463A7771D776AF6F25B9640C9166DFE2D87B6D9477481049D9A5E9E87FCBD55ABDDC55037ABB241609EC23B0CA795619DCE303D93C7ECBF22B33EE62B92F0570E84577CDA846353EBC27336681512F76754EA239A3E20CE71A9FD58A2BA"></video>
+                                </div><!-- 视频容器 -->
+                                <div class="player-control-wrap">
+                                    <div class="video-control-mask"></div>
+                                    <div class="video-control">
+                                        <div class="video-control-top">
+                                            <div class="video-progress"></div>
+                                        </div>
+                                        <div class="video-control-bottom">
+                                            <div class="video-control-bottom-left">
+                                                <div class="video-btn">
+                                                    <button class="mirai-player-iconfont player-iconfont-start" aria-label="播放">
+                                                        <span class="player-svgicon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+                                                            <path d="M17.982 9.275L8.06 3.27A2.013 2.013 0 005 4.994v12.011a2.017 2.017 0 003.06 1.725l9.922-6.005a2.017 2.017 0 000-3.45z"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <button class="mirai-player-iconfont player-iconfont-pause" aria-label="暂停">
+                                                        <span class="player-svgicon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+                                                            <path d="M7 3a2 2 0 00-2 2v12a2 2 0 104 0V5a2 2 0 00-2-2zM15 3a2 2 0 00-2 2v12a2 2 0 104 0V5a2 2 0 00-2-2z"></path>
+                                                        </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="video-control-bottom-center"></div>
+                                            <div class="video-control-bottom-right"></div>
+                                        </div>
+                                    </div>
+                                    <div class="video-progress-shadow"></div>
+                                </div><!-- 播放器控制台 -->
+                                <div class="player-toast"></div><!-- 播放器弹出提示 -->
+                                <div class="player-hotkey"></div><!-- 播放器快捷键 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="test-box"><span>Hello</span></div>
+</body>
+</html>
