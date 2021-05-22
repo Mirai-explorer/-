@@ -15,9 +15,9 @@
         #panel {
             position: fixed;
             background-color: white;
-            max-height: 90%;
+            max-height: 92.5%;
             overflow-y: auto;
-            top: 170px;
+            top: 60px;
             right: 10px;
             width: 320px;
         }
@@ -34,10 +34,25 @@
         .amap-call, .clearfix li {
             display: none;
         }
+        :checked ~ .input-item {
+            max-height:666px;
+        }
+        :checked ~ .btn {
+            display: inline-block;
+        }
+        .input-item {
+            max-height:0;
+            overflow:hidden;
+            transition:max-height .3s;
+        }
+        .btn {
+            display: none;
+            transition: display .3s;
+        }
     </style>
     <link rel="stylesheet" href="./map.css" />
     <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
-    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=e1e4bccba104b1457b60a12b0584acaa&plugin=AMap.Transfer,AMap.Autocomplete"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=e1e4bccba104b1457b60a12b0584acaa&plugin=AMap.Transfer,AMap.AutoComplete"></script>
     <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
@@ -45,6 +60,7 @@
 <div id="container"></div>
 <div id="panel"></div>
 <div class="info">
+    <input id="check" type="checkbox" class="check" value="显示/隐藏" />
     <div class="input-item">
         <div class="input-item-prepend">
             <span class="input-item-text" style="width:4rem;">起点</span>
@@ -71,6 +87,8 @@
         </select>
     </div>
     <input id="search" type="button" class="btn" value="查询" />
+    <input id="use-l" type="button" class="btn" value="使用当前位置" />
+    <input id="traffic" type="button" class="btn" value="实时路况" onclick="toggle()" />
     <div class="input-item">
         <div class="input-item-prepend">
             <span class="input-item-text" style="width:4rem;">方向</span>
@@ -86,13 +104,37 @@
         </div>
         <input id="bus-num" type="text" class="num" value="" />
     </div>
+    <div class="bus-info" id="bus-info">
+        <div id="tips"></div>
+    </div>
     <input id="sss" type="button" class="btn" value="搜索" />
+    <input id="refresh" type="button" class="btn" value="刷新位置" />
+    <input id="clear" type="button" class="btn" value="清空" onclick="clearInfo()" />
 </div>
 <script type="text/javascript">
     var map = new AMap.Map("container", {
         resizeEnable: true,
         center: [116.397428, 39.90923]
     });
+    //实时路况图层
+    var trafficLayer = new AMap.TileLayer.Traffic({
+        zIndex: 10,
+        zooms: [7, 22],
+        visible: false,
+    });
+
+    trafficLayer.setMap(map);
+
+    var isVisible = true;
+    function toggle() {
+        if (isVisible) {
+            trafficLayer.hide();
+            isVisible = false;
+        } else {
+            trafficLayer.show();
+            isVisible = true;
+        }
+    }
     switch (parseInt(document.getElementById('policy').value)) {
         case 0:
             policy = AMap.TransferPolicy.LEAST_TIME;
@@ -141,35 +183,45 @@
         });
     }
     document.getElementById('search').onclick = routeSearch;
-    map.plugin('AMap.Geolocation', function () {
-        geolocation = new AMap.Geolocation({
+    AMap.plugin('AMap.Geolocation', function() {
+        var geolocation = new AMap.Geolocation({
             enableHighAccuracy: true,//是否使用高精度定位，默认:true
-            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-            GeoLocationFirst: true,  //PC端优先使用浏览器定位，默认：false
-            maximumAge: 0,           //定位结果缓存0毫秒，默认：0
-            convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
-            showButton: true,        //显示定位按钮，默认：true
-            buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
+            timeout: 10000,          //超过10秒后停止定位，默认：5s
+            position:'LB',    //定位按钮的停靠位置
             buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-            showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
-            showCircle: false,        //定位成功后用圆圈表示定位精度范围，默认：true
-            panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
-            zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
+
         });
         map.addControl(geolocation);
-        geolocation.getCurrentPosition();
-        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
-        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+        geolocation.getCurrentPosition(function(status,result){
+            if(status=='complete'){
+                onComplete(result)
+            }else{
+                onError(result)
+            }
+        });
     });
+    //解析定位结果
+    function onComplete(data) {
+        log.success('定位成功');
+    }
+    //解析定位错误信息
+    function onError(data) {
+        log.success('定位失败，错误信息：'+data.message);
+    }
+
     var start = new AMap.Autocomplete({
         input: "start"
     });
     var end = new AMap.Autocomplete({
         input: "end"
     });
-</script>
-<script type="text/javascript">
-/*
+
+    function clearInfo(){
+        var p = $('#tips');
+        p.html('');
+        map.clearMap();
+    }
     function query(callback) {
         let num = $("#bus-num").val()
         let dir = $("#select option:selected").attr("data-dir")
@@ -194,7 +246,7 @@
                         console.log(str.data.lineName+"路（"+str.data.startStopName+"→"+str.data.endStopName+"）")
                         console.log("运营时间："+str.data.firstTime+"~"+str.data.lastTime+"，票价："+str.data.price+"，站点数："+str.data.stopsNum+"，行车方向："+direction[str.data.direction])
                         $('#tips').append("<p id='bus-title'>"+str.data.lineName+"路（"+str.data.startStopName+"→"+str.data.endStopName+"）</p>")
-                        $('#tips').append("<p id='bus-info'>运营时间："+str.data.firstTime+"~"+str.data.lastTime+"&nbsp;&nbsp;票价："+str.data.price+"元</p>")
+                        $('#tips').append("<p id='bus-info'>运营时间："+str.data.firstTime+"~"+str.data.lastTime+"&nbsp;&nbsp;票价："+str.data.price+"</p>")
                         var state = new Array()
                         state[0] = "即将到站"
                         state[1] = "到达本站"
@@ -221,19 +273,12 @@
             }
         });
     }
-    var map = new AMap.Map('container', {
-        resizeEnable: true,
-        center: [114.355799,30.561318],
-        zoom: 13
-    });
-
-    map.clearMap();  // 清除地图覆盖物
 
     function mark(callback2) {
         query(function (coordinates) {
             var markers = [];
             for(var i = 0;i < coordinates.length;i++) {
-                markers.push({icon: './icons/poi-marker-'+(i+1)+'.png', position: coordinates[i]})
+                markers.push({icon: 'https://mirai-explorer.github.io/service/icons/poi-marker-'+(i+1)+'.png', position: coordinates[i]})
             }
             callback2(markers)
         })
@@ -256,15 +301,6 @@
 
     function onCenter() {
         var center = map.getCenter();
-
-        var centerText = '当前中心点坐标：' + center.getLng() + ',' + center.getLat();
-        document.getElementById('centerCoord').innerHTML = centerText;
-
-        // 添加事件监听, 使地图自适应显示到合适的范围
-        AMap.event.addDomListener(document.getElementById('setFitView'), 'click', function() {
-            var newCenter = map.setFitView();
-            document.getElementById('centerCoord').innerHTML = '当前中心点坐标：' + newCenter.getCenter();
-        });
     }
     onCenter();
 
@@ -288,7 +324,6 @@
     $('#sss').on('click',function(){
         localInitial()
     });
-    */
 </script>
 </body>
 </html>
